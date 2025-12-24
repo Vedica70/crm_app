@@ -1,0 +1,249 @@
+.user-container {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.user-header {
+  position: sticky;
+  top: 0;
+  background-color: hsl(192, 96%, 20%);
+  color: white;
+  padding: 20px;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.loading,
+.error-message {
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+}
+
+.error-message {
+  color: #d32f2f;
+  background-color: #ffebee;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 4px;
+  border-left: 4px solid #d32f2f;
+}
+
+.table-container {
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Kendo Grid Styles */
+::ng-deep .users-grid {
+  border: 2px solid black;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+::ng-deep .users-grid .k-grid-header-wrap {
+  width: 100% !important;
+  overflow: visible !important;
+}
+
+::ng-deep .users-grid .k-grid-header {
+  background-color: white;
+  border-bottom: 2px solid black;
+  overflow: visible !important;
+  width: 100%;
+}
+
+::ng-deep .users-grid .k-grid-header table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+::ng-deep .users-grid .k-grid-header th {
+  background-color: #bbdefb;
+  color: hsl(192, 96%, 20%);
+  font-weight: 600;
+  border: 1px solid black;
+  padding: 16px;
+  text-align: left;
+  width: 25%;
+}
+
+::ng-deep .users-grid .k-grid-header th:last-child {
+  border-right: none;
+}
+
+::ng-deep .users-grid .k-grid-content {
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
+::ng-deep .users-grid .k-grid-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+::ng-deep .users-grid .k-grid-table tbody tr {
+  border-bottom: 1px solid black;
+}
+
+::ng-deep .users-grid .k-grid-table tbody tr:nth-child(odd) {
+  background-color: white;
+}
+
+::ng-deep .users-grid .k-grid-table tbody tr:nth-child(even) {
+  background-color: #e3f2fd;
+}
+
+::ng-deep .users-grid .k-grid-table td {
+  padding: 16px;
+  border-right: 1px solid black;
+  text-align: left;
+  width: 25%;
+  background-color: inherit !important;
+}
+
+::ng-deep .users-grid .k-grid-table td:last-child {
+  border-right: none;
+  background-color: inherit !important;
+}
+
+::ng-deep .users-grid .k-grid-table tbody tr:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+::ng-deep .users-grid .k-grid-table tbody tr:nth-child(even):hover {
+  background-color: #bbdefb;
+}
+
+/* Pagination Styling */
+::ng-deep .users-grid .k-pager {
+  background-color: #f5f5f5;
+  border-top: 2px solid black;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+::ng-deep .users-grid .k-pager-nav {
+  margin: 0 5px;
+}
+
+::ng-deep .users-grid .k-pager-numbers {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+::ng-deep .users-grid .k-pager-numbers .k-link {
+  border: 1px solid #ddd;
+  margin: 0 2px;
+  padding: 5px 10px;
+  background-color: white;
+  color: hsl(192, 96%, 20%);
+}
+
+::ng-deep .users-grid .k-pager-numbers .k-link:hover {
+  background-color: #e3f2fd;
+}
+
+::ng-deep .users-grid .k-pager-numbers .k-current-page {
+  background-color: hsl(192, 96%, 20%);
+  color: white;
+  border-color: hsl(192, 96%, 20%);
+}
+
+::ng-deep .users-grid .k-pager-sizes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+::ng-deep .users-grid .k-pager-sizes select {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+::ng-deep .users-grid .k-pager-info {
+  text-align: center;
+}
+
+/* Filter Styling */
+::ng-deep .users-grid .k-filter {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+
+::ng-deep .users-grid .k-filter-row td {
+  padding: 8px;
+}
+
+::ng-deep .users-grid .k-filtercell {
+  padding: 8px;
+}
+
+::ng-deep .users-grid .k-filtercell input,
+::ng-deep .users-grid .k-filtercell select {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .user-header {
+    padding: 15px;
+  }
+
+  .user-header h1 {
+    font-size: 20px;
+  }
+
+  .users-table th,
+  .users-table td {
+    padding: 12px 8px;
+    font-size: 14px;
+  }
+
+  .table-container {
+    padding: 10px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .users-table {
+    font-size: 12px;
+  }
+
+  .users-table th,
+  .users-table td {
+    padding: 10px 5px;
+  }
+
+  .user-header h1 {
+    font-size: 18px;
+  }
+}

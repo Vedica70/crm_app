@@ -7,27 +7,29 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
   // Bar Chart Data - Total Sales Month Wise
-  barChartData = [
-    { month: 'Jan', sales: 30000 },
-    { month: 'Feb', sales: 35000 },
-    { month: 'Mar', sales: 42000 },
-    { month: 'Apr', sales: 38000 },
-    { month: 'May', sales: 45000 },
-    { month: 'Jun', sales: 52000 },
-    { month: 'Jul', sales: 48000 },
-    { month: 'Aug', sales: 55000 },
-    { month: 'Sep', sales: 50000 },
-    { month: 'Oct', sales: 58000 },
-    { month: 'Nov', sales: 62000 },
-    { month: 'Dec', sales: 68000 }
+  // Kendo format: category (x-axis) and value (y-axis)
+  barChartData: any[] = [
+    { category: 'Jan', value: 30000 },
+    { category: 'Feb', value: 35000 },
+    { category: 'Mar', value: 42000 },
+    { category: 'Apr', value: 38000 },
+    { category: 'May', value: 45000 },
+    { category: 'Jun', value: 52000 },
+    { category: 'Jul', value: 48000 },
+    { category: 'Aug', value: 55000 },
+    { category: 'Sep', value: 50000 },
+    { category: 'Oct', value: 58000 },
+    { category: 'Nov', value: 62000 },
+    { category: 'Dec', value: 68000 }
   ];
 
-  // Pie Chart Data - Customer Ratings
-  pieChartData = [
-    { rating: '5 Star', value: 450 },
-    { rating: '4 Star', value: 380 },
-    { rating: '3 Star', value: 240 },
-    { rating: '2 Star', value: 90 },
-    { rating: '1 Star', value: 60 }
+  // Pie Chart Data - Customer Ratings Distribution
+  // Kendo format: category and value fields
+  pieChartData: any[] = [
+    { category: '5 Star', value: 450 },
+    { category: '4 Star', value: 380 },
+    { category: '3 Star', value: 240 },
+    { category: '2 Star', value: 90 },
+    { category: '1 Star', value: 60 }
   ];
 }

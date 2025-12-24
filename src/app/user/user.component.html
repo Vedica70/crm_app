@@ -1,0 +1,42 @@
+<div class="user-container">
+  <!-- Header -->
+  <div class="user-header">
+    <h1>Users</h1>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div *ngIf="loading" class="loading">
+    <p>Loading users...</p>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="error && !loading" class="error-message">
+    {{ error }}
+  </div>
+
+  <!-- Kendo Users Table with Pagination and Filtering -->
+  <div *ngIf="!loading && !error" class="table-container">
+    <kendo-grid
+      [data]="gridData"
+      [pageable]="{
+        pageSizes: [5, 10, 20, 30],
+        buttonCount: 5,
+        info: true,
+        type: 'numeric'
+      }"
+      [filterable]="true"
+      [pageSize]="state.take"
+      [skip]="state.skip"
+      (dataStateChange)="dataStateChange($event)"
+      class="users-grid">
+      <kendo-grid-column field="name" title="Name" [filterable]="true"></kendo-grid-column>
+      <kendo-grid-column field="email" title="Email" [filterable]="true"></kendo-grid-column>
+      <kendo-grid-column title="Address" [filterable]="false">
+        <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+          {{ getAddressString(dataItem) }}
+        </ng-template>
+      </kendo-grid-column>
+      <kendo-grid-column field="phone" title="Phone" [filterable]="true"></kendo-grid-column>
+    </kendo-grid>
+  </div>
+</div>

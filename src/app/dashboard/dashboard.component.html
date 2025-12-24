@@ -28,13 +28,22 @@
     <!-- Bar Chart - Total Sales Per Month -->
     <div class="chart-container">
       <h3 class="chart-title">Total Sales Per Month</h3>
-      <kendo-chart [data]="barChartData" [seriesColors]="['#0078d4']">
+      <kendo-chart class="bar-chart">
+        <kendo-chart-legend position="bottom"></kendo-chart-legend>
+        <kendo-chart-tooltip format="Sales: $#,##0"></kendo-chart-tooltip>
         <kendo-chart-series>
-          <kendo-series type="column" field="sales" name="Sales"></kendo-series>
+          <kendo-chart-series-item type="column" [data]="barChartData" field="value" categoryField="category" color="#0066CC" [gap]="0.2" [spacing]="0.1"></kendo-chart-series-item>
         </kendo-chart-series>
-        <kendo-chart-x-axis field="month"></kendo-chart-x-axis>
+        <kendo-chart-x-axis type="category">
+          <kendo-chart-x-axis-item field="category"></kendo-chart-x-axis-item>
+          <kendo-chart-x-axis-line-style width="0"></kendo-chart-x-axis-line-style>
+          <kendo-chart-x-axis-grid-lines visible="false"></kendo-chart-x-axis-grid-lines>
+        </kendo-chart-x-axis>
         <kendo-chart-y-axis>
-          <kendo-y-axis-item></kendo-y-axis-item>
+          <kendo-chart-y-axis-item format="$#,##0"></kendo-chart-y-axis-item>
+          <kendo-chart-y-axis-line-style width="0"></kendo-chart-y-axis-line-style>
+          <kendo-chart-y-axis-grid-lines [visible]="true" dashType="dot" [width]="1" color="#999"></kendo-chart-y-axis-grid-lines>
+          <kendo-chart-y-axis-minor-grid-lines [visible]="false"></kendo-chart-y-axis-minor-grid-lines>
         </kendo-chart-y-axis>
       </kendo-chart>
     </div>
@@ -42,9 +51,11 @@
     <!-- Pie Chart - Customer Ratings -->
     <div class="chart-container">
       <h3 class="chart-title">Customer Ratings Distribution</h3>
-      <kendo-chart [data]="pieChartData">
+      <kendo-chart>
+        <kendo-chart-legend position="bottom"></kendo-chart-legend>
+        <kendo-chart-tooltip format="#= category #: #= value # customers"></kendo-chart-tooltip>
         <kendo-chart-series>
-          <kendo-series type="pie" field="value" categoryField="rating"></kendo-series>
+          <kendo-chart-series-item type="pie" [data]="pieChartData" field="value" categoryField="category"></kendo-chart-series-item>
         </kendo-chart-series>
       </kendo-chart>
     </div>

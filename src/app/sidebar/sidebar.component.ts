@@ -21,8 +21,12 @@ export class SidebarComponent {
 
   selectLLM(llm: string) {
     this.selectedLLM = llm;
-    // Navigate to service calendar after selection
-    this.router.navigate(['/service-calendar']);
+    // Navigate based on selected LLM
+    if (llm === 'Claude') {
+      this.router.navigate(['/service-calendar']);
+    } else if (llm === 'GPT4' || llm === 'GPT5-mini') {
+      this.router.navigate(['/user']);
+    }
     // Close the sidebar after navigation
     this.onClose();
   }
