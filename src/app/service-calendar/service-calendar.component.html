@@ -1,0 +1,54 @@
+<div class="service-calendar-header">
+  <h1>Service Calendar</h1>
+</div>
+
+<div class="service-calendar-container">
+  <button class="create-appointment-btn" (click)="openAppointmentForm()">+ Create Appointment</button>
+  <button class="view-appointment-btn" (click)="viewAppointments()">View Appointment</button>
+  <div class="calendar-content">
+    <!-- Calendar content will be added here -->
+  </div>
+</div>
+
+<!-- Appointment Modal Overlay -->
+<div class="appointment-modal-overlay" *ngIf="showAppointmentForm" (click)="closeAppointmentForm()"></div>
+
+<!-- Appointment Form Modal -->
+<div class="appointment-modal" *ngIf="showAppointmentForm">
+  <div class="modal-content">
+    <h2>Create Appointment</h2>
+    <form (ngSubmit)="createAppointment()">
+      <div class="form-group">
+        <label for="firstName">First Name <span class="required">*</span></label>
+        <input type="text" id="firstName" [(ngModel)]="appointmentForm.firstName" name="firstName" (blur)="onFirstNameBlur()" [class.input-error]="firstNameError && firstNameTouched" required>
+        <span class="error-message" *ngIf="firstNameError && firstNameTouched">✗ {{ firstNameError }}</span>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name <span class="required">*</span></label>
+        <input type="text" id="lastName" [(ngModel)]="appointmentForm.lastName" name="lastName" (blur)="onLastNameBlur()" [class.input-error]="lastNameError && lastNameTouched" required>
+        <span class="error-message" *ngIf="lastNameError && lastNameTouched">✗ {{ lastNameError }}</span>
+      </div>
+      <div class="form-group">
+        <label for="email">Email <span class="required">*</span></label>
+        <input type="email" id="email" [(ngModel)]="appointmentForm.email" name="email" (blur)="onEmailBlur()" [class.input-error]="emailError && emailTouched" required>
+        <span class="error-message" *ngIf="emailError && emailTouched">✗ {{ emailError }}</span>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number <span class="required">*</span></label>
+        <input type="tel" id="phone" [(ngModel)]="appointmentForm.phone" name="phone" (blur)="onPhoneBlur()" [class.input-error]="phoneError && phoneTouched" required>
+        <span class="error-message" *ngIf="phoneError && phoneTouched">✗ {{ phoneError }}</span>
+      </div>
+      <button type="submit" class="create-btn">Create</button>
+    </form>
+  </div>
+</div>
+
+<!-- Success Message -->
+<div class="success-popup" *ngIf="showSuccessMessage">
+  <div class="success-content">
+    <svg class="success-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="white"/>
+    </svg>
+    <p>Appointment has been created successfully</p>
+  </div>
+</div>

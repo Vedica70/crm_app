@@ -1,0 +1,124 @@
+/* Navigation bar is now in the HTML with inline styles */
+
+/* Adjust toolbar to account for the navbar */
+.toolbar {
+  margin-left: 0;
+}
+
+.content {
+  margin-left: 0;
+  margin-top: 82px;
+}
+
+/* Logout Confirmation Modal Styles */
+.logout-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+}
+
+.logout-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  z-index: 2001;
+  min-width: 350px;
+}
+
+.modal-content {
+  padding: 30px;
+  text-align: center;
+}
+
+.modal-content h2 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.modal-content p {
+  margin: 0 0 25px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn-yes,
+.btn-no {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 100px;
+}
+
+.btn-yes {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+.btn-yes:hover {
+  background-color: #ff5252;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+}
+
+.btn-no {
+  background-color: #e9e9e9;
+  color: #333;
+}
+
+.btn-no:hover {
+  background-color: #d9d9d9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 767px) {
+  .navbar {
+    width: 60px;
+  }
+
+  .nav-item {
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav-item svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .logout-modal {
+    min-width: 280px;
+  }
+
+  .modal-content {
+    padding: 20px;
+  }
+
+  .btn-yes,
+  .btn-no {
+    min-width: 80px;
+    padding: 8px 20px;
+    font-size: 13px;
+  }
+}

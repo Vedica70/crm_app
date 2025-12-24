@@ -1,0 +1,53 @@
+<div class="dashboard-header">
+  <h1>Dashboard</h1>
+</div>
+
+<div class="dashboard-container">
+  <p>Welcome to the CRM Dashboard!</p>
+  <div class="dashboard-content">
+    <div class="card">
+      <h2>Total Customers</h2>
+      <p class="number">1,234</p>
+    </div>
+    <div class="card">
+      <h2>Total Sales</h2>
+      <p class="number">$45,678</p>
+    </div>
+    <div class="card">
+      <h2>Active Deals</h2>
+      <p class="number">42</p>
+    </div>
+    <div class="card">
+      <h2>Conversion Rate</h2>
+      <p class="number">12.5%</p>
+    </div>
+  </div>
+
+  <!-- Charts Section -->
+  <div class="charts-section">
+    <!-- Bar Chart - Total Sales Per Month -->
+    <div class="chart-container">
+      <h3 class="chart-title">Total Sales Per Month</h3>
+      <kendo-chart [data]="barChartData" [seriesColors]="['#0078d4']">
+        <kendo-chart-series>
+          <kendo-series type="column" field="sales" name="Sales"></kendo-series>
+        </kendo-chart-series>
+        <kendo-chart-x-axis field="month"></kendo-chart-x-axis>
+        <kendo-chart-y-axis>
+          <kendo-y-axis-item></kendo-y-axis-item>
+        </kendo-chart-y-axis>
+      </kendo-chart>
+    </div>
+
+    <!-- Pie Chart - Customer Ratings -->
+    <div class="chart-container">
+      <h3 class="chart-title">Customer Ratings Distribution</h3>
+      <kendo-chart [data]="pieChartData">
+        <kendo-chart-series>
+          <kendo-series type="pie" field="value" categoryField="rating"></kendo-series>
+        </kendo-chart-series>
+      </kendo-chart>
+    </div>
+  </div>
+</div>
+

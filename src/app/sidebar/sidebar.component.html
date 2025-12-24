@@ -1,0 +1,19 @@
+<div class="sidebar-overlay" [class.open]="isOpen" (click)="onClose()"></div>
+
+<div class="sidebar-panel" [class.open]="isOpen">
+  <div class="sidebar-header">
+    <h2>AI LLMS</h2>
+    <button class="close-btn" (click)="onClose()">✕</button>
+  </div>
+
+  <div class="sidebar-content">
+    <h3>Select Model</h3>
+    <ul class="llm-options">
+      <li *ngFor="let llm of llmOptions" 
+          [class.active]="selectedLLM === llm"
+          (click)="selectLLM(llm)">
+        {{ llm }}
+      </li>
+    </ul>
+  </div>
+</div>
